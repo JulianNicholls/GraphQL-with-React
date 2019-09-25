@@ -18,6 +18,7 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
+    'comma-dangle': ['error', 'always-multiline'],
     'no-console': 'off',
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
