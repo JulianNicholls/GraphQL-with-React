@@ -5,6 +5,7 @@ const {
   GraphQLInt,
   GraphQLList,
   GraphQLSchema,
+  GraphQLNonNull,
 } = graphql;
 const axios = require('axios');
 
@@ -70,6 +71,37 @@ const RootQuery = new GraphQLObjectType({
   },
 });
 
+const RootMutation = new GraphQLObjectType({
+  name: 'Mutation',
+  fields: {
+    addUser: {
+      type: UserType,
+      args: {
+        firstName: { type: new GraphQLNonNull(GraphQLString) },
+        age: { type: new GraphQLNonNull(GraphQLInt) },
+        companyId: { type: GraphQLString },
+      },
+      resolve: (parentValue, { firstName, age, companyId }) => {
+        return axios
+          .post('http://localhost:3000/users', { firstName, age })
+          .then(res => res.data);
+      },
+    },
+    deleteUser: {
+      type: UserType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLString) },
+      },
+      resolve: (parentValue, { id }) => {
+        return axios
+          .delete(`http://localhost:3000/users/${id}`)
+          .then(res => res.data);
+      },
+    },
+  },
+});
+
 module.exports = new GraphQLSchema({
   query: RootQuery,
+  mutation: RootMutation,
 });
