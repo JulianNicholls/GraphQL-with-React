@@ -3,7 +3,25 @@
 Course code for the GraphQL with React course by Stephen Grider at
 [Udemy](https://www.udemy.com/graphql-with-react-course/).
 
-# Differences from Stephen
+## Query examples for reference
+
+```
+{
+  first: company(id: "1") {
+    ...companyDetails
+  }
+
+  company(id: "2") {
+    ...companyDetails
+  }
+}
+
+fragment companyDetails on Company {
+  id, name, description
+}
+```
+
+## Differences from Stephen
 
 I will probably check in my code much more often than Stephen suggests it (assuming he does).
 
