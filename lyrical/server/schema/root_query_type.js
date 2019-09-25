@@ -11,25 +11,25 @@ const RootQuery = new GraphQLObjectType({
   fields: () => ({
     songs: {
       type: new GraphQLList(SongType),
-      resolve() {
+      resolve: () => {
         return Song.find({});
-      }
+      },
     },
     song: {
       type: SongType,
       args: { id: { type: new GraphQLNonNull(GraphQLID) } },
-      resolve(parentValue, { id }) {
+      resolve: (parentValue, { id }) => {
         return Song.findById(id);
-      }
+      },
     },
     lyric: {
       type: LyricType,
       args: { id: { type: new GraphQLNonNull(GraphQLID) } },
-      resolve(parnetValue, { id }) {
+      resolve: (parentValue, { id }) => {
         return Lyric.findById(id);
-      }
-    }
-  })
+      },
+    },
+  }),
 });
 
 module.exports = RootQuery;
