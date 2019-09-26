@@ -5,24 +5,24 @@ module.exports = {
   entry: './client/index.js',
   output: {
     path: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     rules: [
       {
-        use: 'babel-loader',
+        use: { loader: 'babel-loader' },
         test: /\.js$/,
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         use: ['style-loader', 'css-loader'],
-        test: /\.css$/
-      }
-    ]
+        test: /\.css$/,
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'client/index.html'
-    })
-  ]
+      template: 'client/index.html',
+    }),
+  ],
 };
