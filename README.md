@@ -28,6 +28,8 @@ I will probably check in my code much more often than Stephen suggests it (assum
 I dislike lodash, because it has been largely unnecessary since ES2015. I will only use
 it when it is doing something which is not already implemented in the latest JavaScript.
 
+I have updated the version of many of the npm modules in use in the lyrical application.
+
 ### Git client
 
 I have used Git at the command-line for 10 years. Over that time, I have tried
