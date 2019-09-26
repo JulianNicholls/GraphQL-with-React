@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Course code for the GraphQL with React course by Stephen Grider at [Udemy](https://www.udemy.com/graphql-with-react-course/).",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JulianNicholls/GraphQL-with-React.git"
@@ -24,5 +23,12 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-standard": "^4.0.1"
+  },
+  "dependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint-config-react-app": "^5.0.2",
+    "eslint-plugin-flowtype": "^4.3.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react-hooks": "^2.0.1"
   }
 }
