@@ -47,8 +47,10 @@ I will probably check in my code much more often than Stephen suggests it (assum
 I dislike lodash, because it has been largely unnecessary since ES2015. I will only use
 it when it is doing something which is not already implemented in the latest JavaScript.
 
-I have updated the version of many of the npm modules in use in the lyrical application. Notably, it is not easy to update Webpack to 4.x, React to 16.x or the Apollo modules
-to the latest version so I haven't done that as of 26-Sep-19.
+I have updated the version of many of the npm modules in use in the lyrical application.
+I am using the latest React (16.9.x) and Apollo Client (2.x).
+
+I am using React Functional Components and Hooks instead of classes.
 
 ### Git client
 
