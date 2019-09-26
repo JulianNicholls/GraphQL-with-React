@@ -5,6 +5,10 @@ Course code for the GraphQL with React course by Stephen Grider at
 
 ## Query examples for reference
 
+These are query and mutation examples to remember the syntax when it's more than
+just a simple query or mutation.
+
+### Fragments and Named Results
 ```
 {
   first: company(id: "1") {
@@ -16,9 +20,24 @@ Course code for the GraphQL with React course by Stephen Grider at
   }
 }
 
+mutation {
+  addCompany(name: "Woolworth") {
+    ...companyDetails
+  }
+}
+
 fragment companyDetails on Company {
   id, name, description
 }
+```
+
+### Parameterised Mutations
+```
+mutation AddSong($title: String!) {
+  addSong(title: $title) {
+    id
+  }
+  }
 ```
 
 ## Differences from Stephen
