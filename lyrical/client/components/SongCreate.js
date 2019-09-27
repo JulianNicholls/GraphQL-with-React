@@ -11,9 +11,7 @@ const SongCreate = ({ mutate }) => {
     event.preventDefault();
 
     mutate({
-      variables: {
-        title: title,
-      },
+      variables: { title: title },
       refetchQueries: [{ query: querySongs }],
     }).then(() => hashHistory.push('/'));
   };

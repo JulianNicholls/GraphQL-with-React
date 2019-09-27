@@ -16,3 +16,11 @@ export const mutationAddSong = gql`
     }
   }
 `;
+
+export const mutationDeleteSong = gql`
+  mutation DeleteSong($id: ID) {
+    deleteSong(id: $id) {
+      id
+    }
+  }
+`;

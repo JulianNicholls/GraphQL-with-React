@@ -10,10 +10,10 @@ import App from './components/App';
 import SongList from './components/SongList';
 import SongCreate from './components/SongCreate';
 
+import './style/style.css';
+
 const cache = new InMemoryCache();
-const link = new HttpLink({
-  url: 'http://localhost:4000/',
-});
+const link = new HttpLink({ url: 'http://localhost:4000/' });
 const client = new ApolloClient({ cache, link });
 
 const Root = () => {

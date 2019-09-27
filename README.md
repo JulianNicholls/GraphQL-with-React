@@ -37,7 +37,7 @@ mutation AddSong($title: String!) {
   addSong(title: $title) {
     id
   }
-  }
+}
 ```
 
 ## Differences from Stephen
