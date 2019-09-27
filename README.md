@@ -31,8 +31,15 @@ fragment companyDetails on Company {
 }
 ```
 
-### Parameterised Mutations
+### Parameterised Queries and Mutations
 ```
+query Song($id: ID!) {
+  song(id: $id) {
+    id
+    title
+  }
+}
+
 mutation AddSong($title: String!) {
   addSong(title: $title) {
     id
@@ -48,7 +55,8 @@ I dislike lodash, because it has been largely unnecessary since ES2015. I will o
 it when it is doing something which is not already implemented in the latest JavaScript.
 
 I have updated the version of many of the npm modules in use in the lyrical application.
-I am using the latest React (16.9.x) and Apollo Client (2.x).
+I am using the latest React (16.9.x) and Apollo Client (2.x). Currently (27-Sep-2019),
+I have not updated to the latest react-router.
 
 I am using React Functional Components and Hooks instead of classes.
 

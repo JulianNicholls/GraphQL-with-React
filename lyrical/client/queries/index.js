@@ -1,10 +1,23 @@
 import gql from 'graphql-tag';
 
-export const querySongs = gql`
-  query {
+export const querySongList = gql`
+  query SongList {
     songs {
       id
       title
+    }
+  }
+`;
+
+export const querySong = gql`
+  query Song($id: ID!) {
+    song(id: $id) {
+      id
+      title
+      lyrics {
+        id
+        content
+      }
     }
   }
 `;
@@ -18,7 +31,7 @@ export const mutationAddSong = gql`
 `;
 
 export const mutationDeleteSong = gql`
-  mutation DeleteSong($id: ID) {
+  mutation DeleteSong($id: ID!) {
     deleteSong(id: $id) {
       id
     }

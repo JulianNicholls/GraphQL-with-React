@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, hashHistory } from 'react-router';
 import { graphql } from 'react-apollo';
 
-import { querySongs, mutationAddSong } from '../queries';
+import { querySongList, mutationAddSong } from '../queries';
 
 const SongCreate = ({ mutate }) => {
   const [title, setTitle] = useState('');
@@ -12,7 +12,7 @@ const SongCreate = ({ mutate }) => {
 
     mutate({
       variables: { title: title },
-      refetchQueries: [{ query: querySongs }],
+      refetchQueries: [{ query: querySongList }],
     }).then(() => hashHistory.push('/'));
   };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { graphql } from 'react-apollo';
 
-import { querySongs, mutationDeleteSong } from '../queries';
+import { querySongList, mutationDeleteSong } from '../queries';
 
 const SongList = ({ data, mutate }) => {
   const deleteSong = id => {
@@ -29,7 +29,7 @@ const SongList = ({ data, mutate }) => {
       <ul className="collection">{renderSongs()}</ul>
       <Link
         to="/songs/new"
-        className="btn-floating btn-large blue darken-1 right"
+        className="btn-floating btn-large blue darken-2 right"
       >
         <i className="material-icons">add</i>
       </Link>
@@ -37,4 +37,4 @@ const SongList = ({ data, mutate }) => {
   );
 };
 
-export default graphql(mutationDeleteSong)(graphql(querySongs)(SongList));
+export default graphql(mutationDeleteSong)(graphql(querySongList)(SongList));
