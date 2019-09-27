@@ -6,15 +6,13 @@ import { querySongList, mutationDeleteSong } from '../queries';
 
 const SongList = ({ data, mutate }) => {
   const deleteSong = id => {
-    mutate({
-      variables: { id },
-    }).then(() => data.refetch());
+    mutate({ variables: { id } }).then(() => data.refetch());
   };
 
   const renderSongs = () => {
     return data.songs.map(({ id, title }) => (
       <li className="collection-item" key={id}>
-        {title}
+        <Link to={`/song/${id}`}>{title}</Link>
         <i className="material-icons red-text" onClick={() => deleteSong(id)}>
           delete
         </i>
