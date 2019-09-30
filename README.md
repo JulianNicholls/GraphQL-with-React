@@ -3,6 +3,10 @@
 Course code for the GraphQL with React course by Stephen Grider at
 [Udemy](https://www.udemy.com/graphql-with-react-course/).
 
+## Progress
+
+75. Completed Lyrical App
+
 ## Query examples for reference
 
 These are query and mutation examples to remember the syntax when it's more than
@@ -58,6 +62,9 @@ I have not updated to the latest react-router.
 I am using React Functional Components and Hooks instead of classes.
 
 My queries are in a single file `.../queries/index.js`
+
+I always use signup and login to make the difference as obvious as possible.
+It is too easy to start talking about the wrong one otherwise.
 
 ### Git client
 
