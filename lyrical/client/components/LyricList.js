@@ -5,8 +5,18 @@ import { mutationLikeLyric } from '../queries';
 
 const LyricList = ({ lyrics, mutate }) => {
   const renderLyrics = () => {
-    const like = id => {
-      mutate({ variables: { id } });
+    const like = (id, likes) => {
+      mutate({
+        variables: { id },
+        optimisticResponse: {
+          __typename: 'Mutation',
+          likeLyric: {
+            __typename: 'LyricType',
+            id,
+            likes,
+          },
+        },
+      });
     };
 
     return lyrics.map(({ id, content, likes }) => (
@@ -15,7 +25,7 @@ const LyricList = ({ lyrics, mutate }) => {
         <div className="vote-box">
           <i
             className="material-icons green-text darken-2"
-            onClick={() => like(id)}
+            onClick={() => like(id, likes + 1)}
           >
             thumb_up
           </i>

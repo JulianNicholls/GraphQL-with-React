@@ -46,6 +46,7 @@ export const mutationAddLyric = gql`
       lyrics {
         id
         content
+        likes
       }
     }
   }
