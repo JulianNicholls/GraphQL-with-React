@@ -35,8 +35,7 @@ fragment companyDetails on Company {
 ```
 query Song($id: ID!) {
   song(id: $id) {
-    id
-    title
+    id, title
   }
 }
 
@@ -49,8 +48,6 @@ mutation AddSong($title: String!) {
 
 ## Differences from Stephen
 
-I will probably check in my code much more often than Stephen suggests it (assuming he does).
-
 I dislike lodash, because it has been largely unnecessary since ES2015. I will only use
 it when it is doing something which is not already implemented in the latest JavaScript.
 
@@ -59,6 +56,8 @@ I am using the latest React (16.9.x) and Apollo Client (2.x). Currently (27-Sep-
 I have not updated to the latest react-router.
 
 I am using React Functional Components and Hooks instead of classes.
+
+My queries are in a single file `.../queries/index.js`
 
 ### Git client
 

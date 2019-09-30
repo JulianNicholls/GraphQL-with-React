@@ -1,10 +1,26 @@
 import React from 'react';
+import { graphql } from 'react-apollo';
 
-const LyricList = ({ lyrics }) => {
+import { mutationLikeLyric } from '../queries';
+
+const LyricList = ({ lyrics, mutate }) => {
   const renderLyrics = () => {
-    return lyrics.map(({ id, content }) => (
+    const like = id => {
+      mutate({ variables: { id } });
+    };
+
+    return lyrics.map(({ id, content, likes }) => (
       <li className="collection-item" key={id}>
         {content}
+        <div className="vote-box">
+          <i
+            className="material-icons green-text darken-2"
+            onClick={() => like(id)}
+          >
+            thumb_up
+          </i>
+          {likes}
+        </div>{' '}
       </li>
     ));
   };
@@ -12,4 +28,4 @@ const LyricList = ({ lyrics }) => {
   return <ul className="collection">{renderLyrics()}</ul>;
 };
 
-export default LyricList;
+export default graphql(mutationLikeLyric)(LyricList);

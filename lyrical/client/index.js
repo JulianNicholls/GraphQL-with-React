@@ -13,15 +13,14 @@ import SongDetail from './components/SongDetail';
 
 import './style/style.css';
 
-const client = new ApolloClient({
+const apolloClient = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink(),
-  //  dataIdFromObject: o => o.id,
 });
 
 const Root = () => {
   return (
-    <ApolloProvider client={client}>
+    <ApolloProvider client={apolloClient}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
           <IndexRoute component={SongList} />
