@@ -15,7 +15,7 @@ import './style/style.css';
 
 const cache = new InMemoryCache();
 const link = new HttpLink({ url: 'http://localhost:4000/' });
-const client = new ApolloClient({ cache, link });
+const client = new ApolloClient({ cache, link, dataIdFromObject: o => o.id });
 
 const Root = () => {
   return (
