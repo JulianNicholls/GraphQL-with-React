@@ -13,9 +13,11 @@ import SongDetail from './components/SongDetail';
 
 import './style/style.css';
 
-const cache = new InMemoryCache();
-const link = new HttpLink({ url: 'http://localhost:4000/' });
-const client = new ApolloClient({ cache, link, dataIdFromObject: o => o.id });
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: new HttpLink(),
+  //  dataIdFromObject: o => o.id,
+});
 
 const Root = () => {
   return (
