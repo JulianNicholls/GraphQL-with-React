@@ -4,14 +4,16 @@ import { graphql } from 'react-apollo';
 import { queryCurrentUser } from '../queries';
 
 const Header = ({ data }) => {
+  console.log(data);
+
   return (
     <div>
       Header -{' '}
       {data.loading
         ? 'Loading'
         : data.currentUser
-        ? 'None'
-        : data.currentUser.email}
+        ? data.currentUser.email
+        : 'None'}
     </div>
   );
 };

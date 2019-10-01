@@ -79,9 +79,13 @@ mutation AddSong($title: String!) {
 I have updated the version of most of the npm modules in use in the lyrical and
 auth applications.
 
-* I am using the latest React (16.10.x) and Apollo Client (2.x). Currently (30-Sep-2019), I have not updated to the latest react-router on either app.
+* I am using the latest React (16.10.x) and Apollo Client (2.x).
+
+* The latest Apollo client link seems to default to `credentials: 'same-origin'`.
 
 * it is not necessary to pass `{ dataIdFromObject: o => o.id }` to ApolloClient because that is essentially the default (at least in v2.x).
+
+* Currently (01-Oct-2019), I have not updated to the latest react-router on either app.
 
 * I am using React Functional Components and Hooks instead of classes.
 
