@@ -81,6 +81,8 @@ auth applications.
 
 * I am using the latest React (16.10.x) and Apollo Client (2.x). Currently (30-Sep-2019), I have not updated to the latest react-router on either app.
 
+* it is not necessary to pass `{ dataIdFromObject: o => o.id }` to ApolloClient because that is essentially the default (at least in v2.x).
+
 * I am using React Functional Components and Hooks instead of classes.
 
 * My user query is called currentUser.
