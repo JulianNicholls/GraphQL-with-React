@@ -12,6 +12,30 @@ Course code for the GraphQL with React course by Stephen Grider at
 These are query and mutation examples to remember the syntax when it's more than
 just a simple query or mutation.
 
+### Name the queries
+
+If you name your queries and mutations in the GraphiQL interface, then you can have
+multiple ones there and pressing the go button will then show a list of queries and
+mutations to run. e.g.
+
+```
+mutation signup {
+  signup(email: "julian@juliann.co.uk", password: "password") { email }
+}
+
+mutation login {
+  login(email: "julian@juliann.co.uk", password: "password") { email }
+}
+
+mutation loginBad {
+  login(email: "julian@juliann.co.uk", password: "notpassword") { email }
+}
+
+mutation logout {
+  logout { email }
+}
+```
+
 ### Fragments and Named Results
 ```
 {
@@ -52,19 +76,14 @@ mutation AddSong($title: String!) {
 
 ## Differences from Stephen
 
-I dislike lodash, because it has been largely unnecessary since ES2015. I will only use
-it when it is doing something which is not already implemented in the latest JavaScript.
-
-I have updated the version of many of the npm modules in use in the lyrical application.
-I am using the latest React (16.9.x) and Apollo Client (2.x). Currently (27-Sep-2019),
-I have not updated to the latest react-router.
+I have updated the version of most of the npm modules in use in the lyrical and
+auth applications.
+I am using the latest React (16.10.x) and Apollo Client (2.x).
+Currently (30-Sep-2019), I have not updated to the latest react-router on either app.
 
 I am using React Functional Components and Hooks instead of classes.
 
-My queries are in a single file `.../queries/index.js`
-
-I always use signup and login to make the difference as obvious as possible.
-It is too easy to start talking about the wrong one otherwise.
+My queries are in a single file in the client: `.../queries/index.js`
 
 ### Git client
 
