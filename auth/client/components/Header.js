@@ -1,11 +1,19 @@
 import React from 'react';
+import { graphql } from 'react-apollo';
 
-const Header = () => {
+import { queryCurrentUser } from '../queries';
+
+const Header = ({ data }) => {
   return (
     <div>
-      <h3>Header</h3>
+      Header -{' '}
+      {data.loading
+        ? 'Loading'
+        : data.currentUser
+        ? 'None'
+        : data.currentUser.email}
     </div>
   );
 };
 
-export default Header;
+export default graphql(queryCurrentUser)(Header);
