@@ -5,7 +5,7 @@ Course code for the GraphQL with React course by Stephen Grider at
 
 ## Progress
 
-75. Completed Lyrical App
+87. Completed Auth Server
 
 ## Query examples for reference
 
@@ -20,15 +20,15 @@ mutations to run. e.g.
 
 ```
 mutation signup {
-  signup(email: "julian@juliann.co.uk", password: "password") { email }
+  signup(email: "julian@example.com", password: "password") { email }
 }
 
 mutation login {
-  login(email: "julian@juliann.co.uk", password: "password") { email }
+  login(email: "julian@example.com", password: "password") { email }
 }
 
 mutation loginBad {
-  login(email: "julian@juliann.co.uk", password: "notpassword") { email }
+  login(email: "julian@example.com", password: "notpassword") { email }
 }
 
 mutation logout {
