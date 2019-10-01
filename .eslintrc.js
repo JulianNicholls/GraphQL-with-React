@@ -22,6 +22,7 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
+    'jsx-a11y/href-no-hash': 'off',
     'comma-dangle': ['error', 'always-multiline'],
     'space-before-function-paren': [
       'error',

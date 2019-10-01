@@ -1,21 +1,54 @@
 import React from 'react';
+import { Link } from 'react-router';
+
 import { graphql } from 'react-apollo';
 
-import { queryCurrentUser } from '../queries';
+import { queryCurrentUser, mutationLogout } from '../queries';
 
-const Header = ({ data }) => {
-  console.log(data);
+const Header = ({ data, mutate }) => {
+  const logout = event => {
+    event.preventDefault();
+
+    mutate({}).then(() => data.refetch());
+  };
+
+  const renderButtons = () => {
+    const { loading, currentUser: user } = data;
+
+    if (loading) return null;
+
+    if (user) {
+      return (
+        <li>
+          <a onClick={logout}>Log out</a>
+        </li>
+      );
+    }
+
+    return (
+      <>
+        <li>
+          <Link to="/signup">Sign up</Link>
+        </li>
+        <li>
+          <Link to="/login">Log in</Link>
+        </li>
+      </>
+    );
+  };
 
   return (
-    <div>
-      Header -{' '}
-      {data.loading
-        ? 'Loading'
-        : data.currentUser
-        ? data.currentUser.email
-        : 'None'}
-    </div>
+    <nav>
+      <div className="nav-wrapper">
+        <Link to="/" className="left brand-logo">
+          Auth
+        </Link>
+        <ul id="nav-mobile" className="right hide-on-small-and-down">
+          {renderButtons()}
+        </ul>
+      </div>
+    </nav>
   );
 };
 
-export default graphql(queryCurrentUser)(Header);
+export default graphql(mutationLogout)(graphql(queryCurrentUser)(Header));

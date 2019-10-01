@@ -91,7 +91,7 @@ auth applications.
 
 * My user query is called currentUser.
 
-* My queries are in a single file in the client: `.../queries/index.js`
+* My queries and mutations are in a single file in the client: `.../queries/index.js`
 
 ### Git client
 

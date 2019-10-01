@@ -37,7 +37,6 @@ export const mutationLogout = gql`
   mutation logout {
     logout {
       id
-      email
     }
   }
 `;
