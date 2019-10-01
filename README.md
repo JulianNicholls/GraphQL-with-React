@@ -78,21 +78,25 @@ mutation AddSong($title: String!) {
 
 I have updated the version of most of the npm modules in use in the lyrical and
 auth applications.
-I am using the latest React (16.10.x) and Apollo Client (2.x).
-Currently (30-Sep-2019), I have not updated to the latest react-router on either app.
 
-I am using React Functional Components and Hooks instead of classes.
+* I am using the latest React (16.10.x) and Apollo Client (2.x). Currently (30-Sep-2019), I have not updated to the latest react-router on either app.
 
-My queries are in a single file in the client: `.../queries/index.js`
+* I am using React Functional Components and Hooks instead of classes.
+
+* My user query is called currentUser.
+
+* My queries are in a single file in the client: `.../queries/index.js`
 
 ### Git client
 
-I have used Git at the command-line for 10 years. Over that time, I have tried
-many different graphical shells for Git, without finding one that was easier
-and nicer to use than the command-line (in my view).
+I have used Git at the command-line for more than 10 years. Over that time,
+I have tried many different graphical shells for Git, without finding one
+that was easier and nicer to use than the command-line (in my view).
 
 I have now found that [GitKraken](https://www.gitkraken.com) is an excellent
 Git shell and would advise using it to everyone.
+
+I have no connection with GitKraken or Axosoft, other than as a satisfied user.
 
 ### Questions
 
