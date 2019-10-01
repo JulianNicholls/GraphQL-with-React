@@ -34,7 +34,7 @@ export const mutationLogin = gql`
 `;
 
 export const mutationLogout = gql`
-  mutation logout {
+  mutation {
     logout {
       id
     }

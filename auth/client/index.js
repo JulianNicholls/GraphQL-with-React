@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, hashHistory, IndexRoute } from 'react-router';
+import { Router, Route, hashHistory } from 'react-router';
 
 import ApolloClient from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
@@ -8,6 +8,7 @@ import { createHttpLink } from 'apollo-link-http';
 import { ApolloProvider } from 'react-apollo';
 
 import App from './components/App';
+import LoginForm from './components/LoginForm';
 
 import './style/style.css';
 
@@ -21,7 +22,7 @@ const Root = () => {
     <ApolloProvider client={apolloClient}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
-          <h1>Auth Starter</h1>
+          <Route path="login" component={LoginForm} />
         </Route>
       </Router>
     </ApolloProvider>

@@ -23,6 +23,7 @@ module.exports = {
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
     'jsx-a11y/href-no-hash': 'off',
+    'jsx-a11y/anchor-is-valid': 'off',
     'comma-dangle': ['error', 'always-multiline'],
     'space-before-function-paren': [
       'error',
