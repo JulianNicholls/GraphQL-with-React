@@ -5,7 +5,7 @@ Course code for the GraphQL with React course by Stephen Grider at
 
 ## Progress
 
-87. Completed Auth Server
+99. Working on Auth client
 
 ## Query examples for reference
 
@@ -91,7 +91,7 @@ auth applications.
 
 * My user query is called currentUser.
 
-* My queries and mutations are in a single file in the client: `.../queries/index.js`
+* My queries and mutations are in a single file in the client: `.../queries/index.js`. I think that in a large app, I would make at more than one file for queries and mutations. I would probably not put each query or mutation in a sparate file, but group them by function.
 
 ### Git client
 

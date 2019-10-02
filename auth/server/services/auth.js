@@ -33,7 +33,7 @@ passport.use(
         return done(err);
       }
       if (!user) {
-        return done(null, false, 'Invalid Credentials');
+        return done(null, false, 'Unrecognised email address or password');
       }
       user.comparePassword(password, (err, isMatch) => {
         if (err) {
@@ -42,7 +42,7 @@ passport.use(
         if (isMatch) {
           return done(null, user);
         }
-        return done(null, false, 'Invalid credentials.');
+        return done(null, false, 'Unrecognised email address or password');
       });
     });
   })
@@ -87,7 +87,7 @@ function login({ email, password, req }) {
   return new Promise((resolve, reject) => {
     passport.authenticate('local', (err, user) => {
       if (err) reject(err);
-      if (!user) reject(new Error('Invalid credentials.'));
+      if (!user) reject(new Error('Unrecognised email address or password'));
 
       req.login(user, () => resolve(user));
     })({ body: { email, password } });

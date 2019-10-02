@@ -3,7 +3,7 @@ import gql from 'graphql-tag';
 // gql validates the graphql query or mutation text when it is created.
 // I had a typo in mutation Logout, which manifested itself as soon as I
 // called the first currentUser query in the header and it took me a
-// while to realise that the error was there and not with the
+// while to realise that the error was in Logout and not with the
 // currentUser query.
 
 export const queryCurrentUser = gql`
