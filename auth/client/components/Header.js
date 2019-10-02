@@ -5,11 +5,11 @@ import { graphql } from 'react-apollo';
 
 import { queryCurrentUser, mutationLogout } from '../queries';
 
-const Header = ({ data, mutate }) => {
-  const logout = event => {
+const Header = ({ data, mutate: logout }) => {
+  const logoutUser = event => {
     event.preventDefault();
 
-    mutate({}).then(() => data.refetch());
+    logout({}).then(() => data.refetch());
   };
 
   const renderButtons = () => {
@@ -20,7 +20,7 @@ const Header = ({ data, mutate }) => {
     if (user) {
       return (
         <li>
-          <a onClick={logout}>Log out</a>
+          <a onClick={logoutUser}>Log out</a>
         </li>
       );
     }

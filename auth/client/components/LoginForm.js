@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
+import { hashHistory } from 'react-router';
 import { graphql } from 'react-apollo';
 
 import AuthForm from './AuthForm';
 
 import { mutationLogin, queryCurrentUser } from '../queries';
 
-const LoginForm = ({ mutate }) => {
+const LoginForm = ({ mutate: login }) => {
   const [errors, setErrors] = useState([]);
 
   const loginUser = (email, password) => {
-    console.log({ email, password });
-
-    mutate({
+    login({
       variables: { email, password },
       refetchQueries: [{ query: queryCurrentUser }],
-    }).catch(res => {
-      setErrors(res.graphQLErrors.map(err => err.message));
-    });
+    })
+      .then(() => hashHistory.push('/'))
+      .catch(res => {
+        setErrors(res.graphQLErrors.map(err => err.message));
+      });
   };
 
   return (

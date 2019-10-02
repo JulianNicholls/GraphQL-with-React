@@ -63,8 +63,9 @@ function signup({ email, password, req }) {
 
   return User.findOne({ email })
     .then(existingUser => {
-      if (existingUser) throw new Error('Email in use');
-
+      if (existingUser) {
+        throw new Error('That email address has already signed up');
+      }
       return user.save();
     })
     .then(user => {
