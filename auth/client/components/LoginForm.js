@@ -1,23 +1,25 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { hashHistory } from 'react-router';
 import { graphql } from 'react-apollo';
 
 import AuthForm from './AuthForm';
 
-import { mutationLogin, queryCurrentUser } from '../queries';
+import { queryCurrentUser, mutationLogin } from '../queries';
 
-const LoginForm = ({ mutate: login }) => {
+const LoginForm = ({ data: { currentUser }, mutate: login }) => {
   const [errors, setErrors] = useState([]);
+
+  useEffect(() => {
+    if (currentUser) hashHistory.push('/dashboard');
+  }, [currentUser]);
 
   const loginUser = (email, password) => {
     login({
       variables: { email, password },
       refetchQueries: [{ query: queryCurrentUser }],
-    })
-      .then(() => hashHistory.push('/'))
-      .catch(res => {
-        setErrors(res.graphQLErrors.map(err => err.message));
-      });
+    }).catch(res => {
+      setErrors(res.graphQLErrors.map(err => err.message));
+    });
   };
 
   return (
@@ -28,4 +30,4 @@ const LoginForm = ({ mutate: login }) => {
   );
 };
 
-export default graphql(mutationLogin)(LoginForm);
+export default graphql(mutationLogin)(graphql(queryCurrentUser)(LoginForm));

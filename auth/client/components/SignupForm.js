@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { hashHistory } from 'react-router';
 import { graphql } from 'react-apollo';
 
@@ -6,8 +6,12 @@ import AuthForm from './AuthForm';
 
 import { mutationSignup, queryCurrentUser } from '../queries';
 
-const SignupForm = ({ mutate: signup }) => {
+const SignupForm = ({ data: { currentUser }, mutate: signup }) => {
   const [errors, setErrors] = useState([]);
+
+  useEffect(() => {
+    if (currentUser) hashHistory.push('/dashboard');
+  }, [currentUser]);
 
   const signupUser = (email, password) => {
     if (password.length < 6) {
@@ -35,4 +39,4 @@ const SignupForm = ({ mutate: signup }) => {
   );
 };
 
-export default graphql(mutationSignup)(SignupForm);
+export default graphql(mutationSignup)(graphql(queryCurrentUser)(SignupForm));
