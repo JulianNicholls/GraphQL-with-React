@@ -91,7 +91,7 @@ auth applications.
 
 * My user query is called currentUser.
 
-* My queries and mutations are in a single file in the client: `.../queries/index.js`. I think that in a large app, I would make at more than one file for queries and mutations. I would probably not put each query or mutation in a sparate file, but group them by function.
+* My queries and mutations are in a single file in the client: `.../queries/index.js`. I think that in a large app, I would make more than one file for queries and mutations. I would probably not put each query or mutation in a separate file, but group them by function.
 
 ### Git client
 

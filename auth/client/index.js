@@ -8,6 +8,7 @@ import { createHttpLink } from 'apollo-link-http';
 import { ApolloProvider } from 'react-apollo';
 
 import App from './components/App';
+import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
@@ -24,7 +25,8 @@ const Root = () => {
     <ApolloProvider client={apolloClient}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
-          <IndexRoute component={Dashboard} />
+          <IndexRoute component={Home} />
+          <Route path="dashboard" component={Dashboard} />
           <Route path="login" component={LoginForm} />
           <Route path="signup" component={SignupForm} />
         </Route>
