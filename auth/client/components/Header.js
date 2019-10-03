@@ -9,7 +9,7 @@ const Header = ({ data, mutate: logout }) => {
   const logoutUser = event => {
     event.preventDefault();
 
-    logout({}).then(() => data.refetch());
+    logout({ refetchQueries: [{ query: queryCurrentUser }] });
   };
 
   const renderButtons = () => {

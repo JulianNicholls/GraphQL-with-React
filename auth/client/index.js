@@ -12,6 +12,7 @@ import Home from './components/Home';
 import Dashboard from './components/Dashboard';
 import LoginForm from './components/LoginForm';
 import SignupForm from './components/SignupForm';
+import requireAuth from './components/requireAuth';
 
 import './style/style.css';
 
@@ -26,7 +27,7 @@ const Root = () => {
       <Router history={hashHistory}>
         <Route path="/" component={App}>
           <IndexRoute component={Home} />
-          <Route path="dashboard" component={Dashboard} />
+          <Route path="dashboard" component={requireAuth(Dashboard)} />
           <Route path="login" component={LoginForm} />
           <Route path="signup" component={SignupForm} />
         </Route>

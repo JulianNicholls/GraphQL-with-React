@@ -85,13 +85,15 @@ auth applications.
 
 * it is not necessary to pass `{ dataIdFromObject: o => o.id }` to ApolloClient because that is essentially the default (at least in v2.x).
 
-* Currently (01-Oct-2019), I have not updated to the latest react-router on either app.
+* Currently (03-Oct-2019), I have not updated to the latest react-router on either app.
 
 * I am using React Functional Components and Hooks instead of classes.
 
 * My user query is called currentUser.
 
-* My queries and mutations are in a single file in the client: `.../queries/index.js`. I think that in a large app, I would make more than one file for queries and mutations. I would probably not put each query or mutation in a separate file, but group them by function.
+* For both lyrical and auth, my queries and mutations are in a single file in the client: `.../queries/index.js`. I think that in a large app, I would make more than one file for queries and mutations. I would probably not put each query or mutation in a separate file, but group them by function.
+
+* React hooks really shine in the auth `requireAuth()`. `useEffect(...)` is much more effective than the method that Stephen uses.
 
 ### Git client
 
