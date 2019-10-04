@@ -12,9 +12,9 @@ Course code for the GraphQL with React course by Stephen Grider at
 These are query and mutation examples to remember the syntax when it's more than
 just a simple query or mutation.
 
-### Name the queries
+### Name your queries in the GraphiQL interface
 
-If you name your queries and mutations in the GraphiQL interface, then you can have
+If you name your queries and mutations, then you can have
 multiple ones there and pressing the go button will then show a list of queries and
 mutations to run. e.g.
 
@@ -110,3 +110,4 @@ I have no connection with GitKraken or Axosoft, other than as a satisfied user.
 
 If you have any questions about this repository, or any others of mine, please
 don't hesitate to contact me.
+
