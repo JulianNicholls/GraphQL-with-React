@@ -6,7 +6,7 @@ import { graphql } from 'react-apollo';
 import { queryCurrentUser, mutationLogout } from '../queries';
 
 const Header = ({ data, mutate: logout }) => {
-  const logoutUser = event => {
+  const logoutUser = (event) => {
     event.preventDefault();
 
     logout({ refetchQueries: [{ query: queryCurrentUser }] });
@@ -40,7 +40,7 @@ const Header = ({ data, mutate: logout }) => {
   return (
     <nav>
       <div className="nav-wrapper">
-        <Link to="/" className="left brand-logo">
+        <Link to="/" className="brand-logo">
           Auth
         </Link>
         <ul id="nav-mobile" className="right hide-on-small-and-down">
