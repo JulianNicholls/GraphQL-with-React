@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, hashHistory } from 'react-router';
+import { Link, hashHistory } from 'react-router-dom';
 import { graphql } from 'react-apollo';
 
 import { querySongList, mutationAddSong } from '../queries';
@@ -7,7 +7,7 @@ import { querySongList, mutationAddSong } from '../queries';
 const SongCreate = ({ mutate }) => {
   const [title, setTitle] = useState('');
 
-  const addSong = event => {
+  const addSong = (event) => {
     event.preventDefault();
 
     mutate({
@@ -18,7 +18,7 @@ const SongCreate = ({ mutate }) => {
 
   return (
     <div>
-      <Link to="/">Back</Link>
+      <Link to="/">&lt; Back</Link>
       <h3>Create a new song</h3>
       <form onSubmit={addSong}>
         <label htmlFor="title">Title</label>
@@ -26,7 +26,7 @@ const SongCreate = ({ mutate }) => {
           type="text"
           id="title"
           value={title}
-          onChange={event => setTitle(event.target.value)}
+          onChange={(event) => setTitle(event.target.value)}
         />
       </form>
     </div>

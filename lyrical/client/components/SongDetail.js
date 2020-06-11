@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { graphql } from 'react-apollo';
 
 import LyricCreate from './LyricCreate';
@@ -24,5 +24,5 @@ const SongDetail = ({ data }) => {
 };
 
 export default graphql(querySong, {
-  options: ({ params }) => ({ variables: { id: params.id } }),
+  options: ({ match }) => ({ variables: { id: match.params.id } }),
 })(SongDetail);

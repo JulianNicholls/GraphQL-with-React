@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, hashHistory } from 'react-router';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ApolloClient from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { HttpLink } from 'apollo-link-http';
@@ -21,12 +21,12 @@ const apolloClient = new ApolloClient({
 const Root = () => {
   return (
     <ApolloProvider client={apolloClient}>
-      <Router history={hashHistory}>
-        <Route path="/" component={App}>
-          <IndexRoute component={SongList} />
-          <Route path="songs/new" component={SongCreate} />
-          <Route path="song/:id" component={SongDetail} />
-        </Route>
+      <Router>
+        <Switch>
+          <Route path="/songs/new" component={SongCreate} />
+          <Route path="/song/:id" component={SongDetail} />
+          <Route path="/" component={SongList} />
+        </Switch>
       </Router>
     </ApolloProvider>
   );

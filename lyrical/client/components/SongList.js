@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { graphql } from 'react-apollo';
 
 import { querySongList, mutationDeleteSong } from '../queries';
 
 const SongList = ({ data, mutate }) => {
-  const deleteSong = id => {
+  const deleteSong = (id) => {
     mutate({ variables: { id } }).then(() => data.refetch());
   };
 
@@ -25,10 +25,7 @@ const SongList = ({ data, mutate }) => {
   return (
     <div>
       <ul className="collection">{renderSongs()}</ul>
-      <Link
-        to="/songs/new"
-        className="btn-floating btn-large blue darken-2 right"
-      >
+      <Link to="/songs/new" className="btn-floating btn-large blue darken-2 right">
         <i className="material-icons">add</i>
       </Link>
     </div>
